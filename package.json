@@ -1,0 +1,30 @@
+{
+  "_from": "strapi-plugin-queries-magic@1.0.0-alpha",
+  "_id": "strapi-plugin-queries-magic@1.0.0-alpha",
+  "_inBundle": false,
+  "_location": "/strapi-plugin-queries-magic",
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-queries-magic@1.0.0-alpha",
+    "name": "strapi-plugin-queries-magic",
+    "escapedName": "strapi-plugin-queries-magic",
+    "rawSpec": "1.0.0-alpha",
+    "saveSpec": null,
+    "fetchSpec": "1.0.0-alpha"
+  },
+  "author": {
+    "name": "JoseJ_PR",
+    "email": "jose.perez@ceroyuno.es",
+    "url": "https://www.ceroyuno.es"
+  },
+  "homepage": "https://github.com/JoseJPR/strapi-plugin-queries-magic#readme",
+  "license": "MIT",
+  "name": "strapi-plugin-queries-magic",
+  "strapi": {
+    "name": "Magic Queries",
+    "icon": "database",
+    "description": "Create first level related queries."
+  },
+  "version": "1.0.0-alpha"
+}

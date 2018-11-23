@@ -1,0 +1,13 @@
+{
+    "routes": [
+        {
+            "method": "GET",
+            "path": "/",
+            "handler": "QueriesMagic.search",
+            "config": {
+                "policies": []
+            }
+        }
+    ]
+}
+  
