@@ -7,6 +7,7 @@
  */
 
 const _ = require('lodash');
+const { Utils } = require('../utils/utils');
 
 module.exports = {
   search: async (mainCollection, ctx) => {
@@ -36,7 +37,13 @@ module.exports = {
           //We call the service in a dynamic way according to the saved items for each collection
           _filtersIds[_filterQuery] = await strapi.services[_filterQuery].fetchAll(_queries[_filterQuery]);
           //We get only the _id and add the query with $ in and the _id
-          _filters[_filterQuery] = {$in: _filtersIds[_filterQuery].map(x => x._id)};
+          var settingsPatch = path.join(__dirname, '../../api/' + mainCollection + '/models/' + mainCollection.Utils.capitalize()+ '.settings.json');
+          var JSONPatch = JSON.parse(fs.readFileSync(settingsPatch, 'utf8'));
+          if(JSONPatch.attributes[_filterQuery].collection != undefined){
+            _filters[_filterQuery] = {$elemMatch: {$in: _filtersIds[_filterQuery].map(x => x._id)}};
+          }else{
+            _filters[_filterQuery] = {$in: _filtersIds[_filterQuery].map(x => x._id)};
+          }
         }
     
         return strapi.services[mainCollection].fetchAll(_filters);
